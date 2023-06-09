@@ -2,7 +2,12 @@
   Todos os atributos necessários. Assim, usando Try e Catch, trate os erros e apresente uma mensagem quando houve atributos vazios.
 */
 
-class MeuErro extends Error
+class MeuErro extends Error{
+      constructor(message){
+        super(message)
+        this.name = "Erro de Preenchimento"
+      }
+}
 
 class Estudante {
   constructor(nome, idade, turma) {
@@ -12,23 +17,33 @@ class Estudante {
   }
 
   mostrarAtributos() {
-    return this.atributos();
+    try
+    {
+      return this.atributos();
+    }
+    catch(erro)
+    {
+      console.log(erro.stack)
+    }
   }
 
   atributos() {
-    return {
-      nome: this.nome,
-      idade: this.idade,
-      turma: this.turma
-    };
+    if(this.nome != "" && this.idade != "" && this.turma != "")
+    {
+        return this.nome + " " + this.idade + " " + this.turma
+    }
+    else
+    {
+        throw new MeuErro("Verifique se o nome, idade e turma estão preenchidos para continuar")
+    }
   }
 }
 
-const estudante = new Estudante("João", 16, "3A");
+const estudante = new Estudante("João", "16", "3A");
 
 const atributos = estudante.mostrarAtributos();
-
-console.log(atributos.nome);   
-console.log(atributos.idade);  
-console.log(atributos.turma); 
+console.log(atributos)
+// console.log(atributos.nome);   
+// console.log(atributos.idade);  
+// console.log(atributos.turma); 
 
