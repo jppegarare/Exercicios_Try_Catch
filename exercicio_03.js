@@ -27,19 +27,21 @@ class NerdIF
     }
   }
 
-  atributos() {
-    return {
-      estudante: this.estudante,
-      cosplay: this.cosplay,
-      nota_cosplay: this.nota_cosplay
-    };
+  atributos() 
+  {
+    if (this.estudante != "" && this.cosplay !="" && this.nota_cosplay !="")
+    {
+        return this.estudante + " " + this.cosplay + " " + this.nota_cosplay
+    }
+    else
+    {
+        throw new MeuErro("Adicione o nome do estudante, o cosplay e a nota do cosplay para continuar ")
+    }
   }
 }
 
 const aluno = new NerdIF("João", "Homem-Aranha", 9.5);
 const atributos = aluno.retornarAtributos();
+console.log(atributos)
 
-console.log(atributos.estudante); 
-console.log(atributos.cosplay);   
-console.log(atributos.nota_cosplay);
 

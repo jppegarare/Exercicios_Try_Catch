@@ -4,7 +4,7 @@
 class MeuErro extends Error {
   constructor(message){
     super(message);
-    this.name = "Erro nos Atributos";
+    this.name = "Erro de Preenchimento";
   }
 }
 
