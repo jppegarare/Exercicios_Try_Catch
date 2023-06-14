@@ -1,12 +1,30 @@
-class NerdIF {
+class MeuErro extends Error
+{
+  constructor(message)
+  {
+    super(message)
+    this.name = "Erro de Preenchimento"
+  }
+}
+
+class NerdIF
+  {
   constructor(estudante, cosplay, nota_cosplay) {
     this.estudante = estudante;
     this.cosplay = cosplay;
     this.nota_cosplay = nota_cosplay;
   }
 
-  retornarAtributos() {
-    return this.atributos()
+  retornarAtributos() 
+  {
+    try
+    {
+      return this.atributos();
+    }
+    catch(erro)
+    {
+        console.log(erro.stack) 
+    }
   }
 
   atributos() {

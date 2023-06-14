@@ -39,7 +39,7 @@ class Estudante {
   }
 }
 
-const estudante = new Estudante("João", "16", "3A");
+const estudante = new Estudante("João", "", "3A");
 
 const atributos = estudante.mostrarAtributos();
 console.log(atributos)
